@@ -3,6 +3,9 @@
 #include <string>
 #include <thread>
 #include <chrono>
+#include <mutex>
+
+std::mutex mtx;
 
 // Клас замовлення
 class Order
@@ -12,17 +15,44 @@ class Order
     std::vector<std::string> items;
     double totalPrice;
     std::string status;
-
+   
   public:
     Order(int id, const std::vector<std::string>& items)
         : id(id), items(items), totalPrice(0.0), status("raw") {}
 
     int getId() const { return id; }
-    std::vector<std::string> getItems() const { return items; }
-    void setTotalPrice(double price) { totalPrice = price; }
-    double getTotalPrice() const { return totalPrice; }
-    void setStatus(const std::string& st) { status = st; }
-    std::string getStatus() const { return status; }
+
+    std::vector<std::string> getItems() const
+    {
+      std::lock_guard<std::mutex> lock(mtx);
+      return items;
+    }
+
+    void setTotalPrice(double price)
+    {
+      std::lock_guard<std::mutex> lock(mtx);
+      totalPrice = price;
+    }
+
+    double getTotalPrice() const
+    {
+      std::lock_guard<std::mutex> lock(mtx);
+      return totalPrice;
+    }
+
+    void setStatus(const std::string& st)
+    {
+      std::lock_guard<std::mutex> lock(mtx);
+      status = st;
+    }
+
+    std::string getStatus() const
+    {
+      std::lock_guard<std::mutex> lock(mtx);
+      return status;
+    }
+
+
 };
 
 // Клас обробки замовлень
