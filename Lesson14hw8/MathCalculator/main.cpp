@@ -1,4 +1,3 @@
-//#include <QCoreApplication>
 #include <iostream>
 #include "mathlib.h"
 
@@ -19,49 +18,63 @@ void showMenu() {
 
 
 
+int main() {
 
-//int main(int argc, char *argv[])
-int main()
-{
-    //QCoreApplication a(argc, argv);
-
-    cout << "Welcome to Mathematical Calculator!" << endl;
+    cout << "\nWelcome to Mathematical Calculator!" << endl;
     cout << "Using Static Library (.a)" << endl;
 
-    double res = add(7, 5);
+    //double res = add(7, 5);
 
-    cout << "Res = " << res << endl;
+    //cout << "Res = " << res << endl;
 
-    showMenu();
+    // showMenu();
 
-    int choice;
-    cin >> choice;
+    // int choice;
+    // cin >> choice;0
 
-    cout << "Enter = " << choice << endl;
+    //cout << "Enter = " << choice << endl;
 
-    /*
+
 
     int choice;
     do {
-        //showMenu();
+        showMenu();
         cin >> choice;
 
         switch (choice) {
         case 1: {
+            cout << "Select function: (1)add; (2)subtract; (3)multiply; (4)divide;" << endl;
+            cout << "Choose option: ";
 
-            cout << "Case = 1" << endl;
+            int searchType;
+            cin >> searchType;
 
-            //     string title, author;
-            // int year;
-            // cout << "Enter title: ";
-            // cin.ignore();
-            // getline(cin, title);
-            // cout << "Enter author: ";
-            // getline(cin, author);
-            // cout << "Enter year: ";
-            // cin >> year;
+            if (searchType == 1) {
 
-            // library.addBook(Book(title, author, year));
+                cout << "Type = 1" << endl;
+                // auto results = library.findByTitle(search);
+                // cout << "\n🔍 Found " << results.size() << " books:" << endl;
+                // for (const auto& book : results) {
+                //     cout << book.getInfo() << endl;
+                // }
+            }
+            else if (searchType == 2) {
+
+                cout << "Type = 2" << endl;
+                // auto results = library.findByAuthor(search);
+                // cout << "\n🔍 Found " << results.size() << " books:" << endl;
+                // for (const auto& book : results) {
+                //     cout << book.getInfo() << endl;
+                // }
+            }
+            else if (searchType == 3) {
+                cout << "Type = 3" << endl;
+            }
+            else {
+                cout << "Type = 4" << endl;
+            }
+
+
             // cout << "✅ Book added!" << endl;
             break;
         }
@@ -138,8 +151,6 @@ int main()
             cout << "Invalid option!" << endl;
         }
     } while (choice != 0);
-
-*/
 
     //return a.exec();
     return 0;
