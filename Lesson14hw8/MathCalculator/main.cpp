@@ -8,15 +8,13 @@ void showMenu() {
     cout << "\n=== Mathematical Calculator ===" << endl;
     cout << "1. Basic operations         (add, subtract, multiply, divide)" << endl;
     cout << "2. Mathematical functions   (power, squareRoot, absoluteValue)" << endl;
-    cout << "3. Working with arrays      (findMax, findMin, calculateSum, calculateAverage, sortArray)" << endl;
-    cout << "4. Working with integers    (factorial, isPrime, gcd)" << endl;
-    cout << "5. Utility functions        (isEven, isOdd, fibonacci)" << endl;
+    cout << "3. Working with integers    (factorial, isPrime, gcd)" << endl;
+    cout << "4. Utility functions        (isEven, isOdd, fibonacci)" << endl;
+    cout << "5. Working with arrays      (findMax, findMin, calculateSum, calculateAverage, sortArray)" << endl;
     cout << "6. Demonstration of all functions" << endl;
     cout << "0. Exit" << endl;
     cout << "Choose option: ";
 }
-
-
 
 
 int main() {
@@ -31,96 +29,199 @@ int main() {
 
         switch (choice) {
         case 1: {
-            cout << "Select function: (1)add; (2)subtract; (3)multiply; (4)divide;" << endl;
-            cout << "Choose option: ";
+            cout << "\nSelect function:" << endl;
+            cout << "1. add(a, b)" << endl;
+            cout << "2. subtract(a, b)" << endl;
+            cout << "3. multiply(a, b)" << endl;
+            cout << "4. divide(a, b)" << endl;
+            cout << "Choose function: ";
+
+            int searchType;
+            cin >> searchType;
+
+            cout << "\nEnter two values (separated by a space): ";
+            double valuesA, valuesB;
+            cin >> valuesA >> valuesB;
+
+            double result;
+
+            if (searchType == 1) {
+                result = add(valuesA, valuesB);
+            }
+            else if (searchType == 2) {
+                result = subtract(valuesA, valuesB);
+            }
+            else if (searchType == 3) {
+                result = multiply(valuesA, valuesB);
+            }
+            else {
+                result = divide(valuesA, valuesB);
+            }
+
+            cout << "Result function " << "(" << searchType << ") = "<< result << endl;
+
+            break;
+        }
+        case 2: {
+            cout << "\nSelect function:" << endl;
+            cout << "1. power(a, b)" << endl;
+            cout << "2. squareRoot(a)" << endl;
+            cout << "3. absoluteValue(a)" << endl;
+            cout << "Choose function: ";
+
+            int searchType;
+            cin >> searchType;
+
+            double result;
+
+            if (searchType == 1) {
+                cout << "\nEnter two values (separated by a space): ";
+                double valuesA, valuesB;
+                cin >> valuesA >> valuesB;
+                result = power(valuesA, valuesB);
+            }
+            else if (searchType == 2) {
+                cout << "\nEnter one value: ";
+                double valuesA;
+                cin >> valuesA;
+                result = squareRoot(valuesA);
+            }
+            else {
+                cout << "\nEnter one value: ";
+                double valuesA;
+                cin >> valuesA;
+                result = absoluteValue(valuesA);
+            }
+
+            cout << "Result function " << "(" << searchType << ") = "<< result << endl;
+
+            break;
+        }
+        case 3: {
+            cout << "\nSelect function:" << endl;
+            cout << "1. factorial(a)" << endl;
+            cout << "2. isPrime(a)" << endl;
+            cout << "3. gcd(a, b)" << endl;
+            cout << "Choose function: ";
 
             int searchType;
             cin >> searchType;
 
             if (searchType == 1) {
-
-                cout << "Type = 1" << endl;
-                // auto results = library.findByTitle(search);
-                // cout << "\n🔍 Found " << results.size() << " books:" << endl;
-                // for (const auto& book : results) {
-                //     cout << book.getInfo() << endl;
-                // }
+                cout << "\nEnter one value: ";
+                int valuesA;
+                cin >> valuesA;
+                cout << "Result function " << "(" << searchType << ") = "<< factorial(valuesA) << endl;
             }
             else if (searchType == 2) {
-
-                cout << "Type = 2" << endl;
-                // auto results = library.findByAuthor(search);
-                // cout << "\n🔍 Found " << results.size() << " books:" << endl;
-                // for (const auto& book : results) {
-                //     cout << book.getInfo() << endl;
-                // }
-            }
-            else if (searchType == 3) {
-                cout << "Type = 3" << endl;
+                cout << "\nEnter one value: ";
+                int valuesA;
+                cin >> valuesA;
+                cout << "Result function " << "(" << searchType << ") = " << ((isPrime(valuesA)) ? "True!" : "False!") << endl;
             }
             else {
-                cout << "Type = 4" << endl;
+                cout << "\nEnter two values (separated by a space): ";
+                int valuesA, valuesB;
+                cin >> valuesA >> valuesB;
+                cout << "Result function " << "(" << searchType << ") = "<< gcd(valuesA, valuesB) << endl;
             }
 
-
-            // cout << "✅ Book added!" << endl;
-            break;
-        }
-        case 2:
-            cout << "Case = 2" << endl;
-            // library.showAllBooks();
-            break;
-
-        case 3: {
-            cout << "Case = 3" << endl;
-            // string search;
-            // cout << "Search by (1)Title or (2)Author: ";
-            // int searchType;
-            // cin >> searchType;
-            // cout << "Enter search term: ";
-            // cin.ignore();
-            // getline(cin, search);
-
-            // if (searchType == 1) {
-            //     auto results = library.findByTitle(search);
-            //     cout << "\n🔍 Found " << results.size() << " books:" << endl;
-            //     for (const auto& book : results) {
-            //         cout << book.getInfo() << endl;
-            //     }
-            // }
-            // else {
-            //     auto results = library.findByAuthor(search);
-            //     cout << "\n🔍 Found " << results.size() << " books:" << endl;
-            //     for (const auto& book : results) {
-            //         cout << book.getInfo() << endl;
-            //     }
-            // }
             break;
         }
         case 4: {
-            cout << "Case = 4" << endl;
-            // int bookId;
-            // cout << "Enter book ID to borrow: ";
-            // cin >> bookId;
-            // if (library.borrowBook(bookId)) {
-            //     cout << "✅ Book borrowed successfully!" << endl;
-            // }
-            // else {
-            //     cout << "❌ Cannot borrow book (not available or not found)" << endl;
-            // }
+            cout << "\nSelect function:" << endl;
+            cout << "1. isEven(a)" << endl;
+            cout << "2. isOdd(a)" << endl;
+            cout << "3. fibonacci(a)" << endl;
+            cout << "Choose function: ";
+
+            int searchType;
+            cin >> searchType;
+
+            if (searchType == 1) {
+                cout << "\nEnter one value: ";
+                int valuesA;
+                cin >> valuesA;
+                cout << "Result function " << "(" << searchType << ") = " << ((isEven(valuesA)) ? "True!" : "False!") << endl;
+            }
+            else if (searchType == 2) {
+                cout << "\nEnter one value: ";
+                int valuesA;
+                cin >> valuesA;
+                cout << "Result function " << "(" << searchType << ") = " << ((isOdd(valuesA)) ? "True!" : "False!") << endl;
+            }
+            else {
+                cout << "\nEnter one value: ";
+                int valuesA;
+                cin >> valuesA;
+                cout << "Result function " << "(" << searchType << ") = " << fibonacci(valuesA) << endl;
+            }
+
             break;
         }
         case 5: {
-            cout << "Case = 5" << endl;
-            // int bookId;
-            // cout << "Enter book ID to return: ";
-            // cin >> bookId;
-            // if (library.returnBook(bookId)) {
-            //     cout << "✅ Book returned successfully!" << endl;
-            // }
-            // else {
-            //     cout << "❌ Cannot return book (not borrowed or not found)" << endl;
-            // }
+            cout << "\nSelect function:" << endl;
+            cout << "1. findMax(arr[], size)" << endl;
+            cout << "2. findMin(arr[], size)" << endl;
+            cout << "3. calculateSum(arr[], size)" << endl;
+            cout << "4. calculateAverage(arr[], size)" << endl;
+            cout << "5. sortArray(arr[], size)" << endl;
+            cout << "Choose function: ";
+
+            int searchType;
+            cin >> searchType;
+
+            // double findMax(const double arr[], int size);  // максимум масиву
+            // double findMin(const double arr[], int size);  //мінімум масиву
+            // double calculateSum(const double arr[], int size); // сума елементів
+            // double calculateAverage(const double arr[], int size);  // середнє арифметичне
+            // void sortArray(double arr[], int size); // сортування масиву
+
+
+            cout << "\nEnter the array size: ";
+            int size;
+            cin >> size;
+
+            double* arr= new double[size];
+
+            cout << "Enter " << size << " numbers (separated by a space): ";
+            for (int i = 0; i < size; i++) {
+                cin >> arr[i];
+            }
+
+
+            double result;
+
+            if (searchType == 1) {
+                result = findMax(arr, size);
+            }
+            else if (searchType == 2) {
+                result = findMin(arr, size);
+            }
+            else if (searchType == 3) {
+                result = calculateSum(arr, size);
+            }
+            else if (searchType == 4) {
+                result = calculateAverage(arr, size);
+            }
+            else {
+                sortArray(arr, size);
+
+                cout << "Sorted array: ";
+                for (int i = 0; i < size; i++) {
+                    cout << arr[i] << " ";
+                }
+                cout << endl;
+
+                delete[] arr;
+
+                break;
+            }
+
+            cout << "Result function " << "(" << searchType << ") = "<< result << endl;
+
+            delete[] arr;
+
             break;
         }
         case 6: {

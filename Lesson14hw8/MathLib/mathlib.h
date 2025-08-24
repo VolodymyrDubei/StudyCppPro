@@ -31,6 +31,15 @@ bool isPrime(int number);  // перевірка чи число просте
 int gcd(int a, int b);  // найбільший спільний дільник
 
 
+// Утилітарні функції
+
+bool isEven(int number); // перевірка на парність
+
+bool isOdd(int number); // перевірка на непарність
+
+int fibonacci(int n); // n-те число Фібоначчі
+
+
 // Робота з масивами
 
 double findMax(const double arr[], int size);  // максимум масиву
@@ -42,17 +51,6 @@ double calculateSum(const double arr[], int size); // сума елементі�
 double calculateAverage(const double arr[], int size);  // середнє арифметичне
 
 void sortArray(double arr[], int size); // сортування масиву
-
-
-
-// Утилітарні функції
-
-bool isEven(int number); // перевірка на парність
-
-bool isOdd(int number); // перевірка на непарність
-
-int fibonacci(int n); // n-те число Фібоначчі
-
 
 
 #endif // MATHLIB_H

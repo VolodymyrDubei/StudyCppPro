@@ -1,6 +1,6 @@
 QT       -= gui
 
-TARGET = Calculatot
+TARGET = Calculator
 CONFIG   += console
 CONFIG   -= app_bundle
 
