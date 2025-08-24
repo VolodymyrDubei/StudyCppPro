@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 void showMenu() {
     cout << "\n=== Mathematical Calculator ===" << endl;
     cout << "1. Basic operations         (add, subtract, multiply, divide)" << endl;
@@ -22,19 +23,6 @@ int main() {
 
     cout << "\nWelcome to Mathematical Calculator!" << endl;
     cout << "Using Static Library (.a)" << endl;
-
-    //double res = add(7, 5);
-
-    //cout << "Res = " << res << endl;
-
-    // showMenu();
-
-    // int choice;
-    // cin >> choice;0
-
-    //cout << "Enter = " << choice << endl;
-
-
 
     int choice;
     do {
