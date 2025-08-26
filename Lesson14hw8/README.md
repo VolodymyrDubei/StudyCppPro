@@ -1,4 +1,4 @@
-# Рішення ДЗ по 5-му уроку.
+# Рішення ДЗ по 14-му уроку.
 
 ## Автор
 **Володимир Дубей** - студент курсу
@@ -8,6 +8,7 @@ Lesson14. Статичні бібліотеки та робота з ними
 
 
 Рішення в проекті "Lesson14hw8"
+https://github.com/VolodymyrDubei/StudyCppPro/tree/e5c79a264328aadc92bdec492c6ba22fbf38b026/Lesson14hw8
 
 
 ## Умова задачі:
@@ -29,6 +30,9 @@ https://lms.ithillel.ua/groups/676acacf875fa5eeafd84776/homeworks/688799472239ac
 
 ## Як запустити
 
+1. Зайти в папка:
+https://github.com/VolodymyrDubei/StudyCppPro/tree/e5c79a264328aadc92bdec492c6ba22fbf38b026/Lesson14hw8/MathCalculator/build/Qt_6_9_1_for_macOS-Debug
 
+2. Скачати з папки файл Calculator
 
-
+3. Запустити в терміналі файл Calculator
