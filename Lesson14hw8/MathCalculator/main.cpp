@@ -1,7 +1,295 @@
 #include <iostream>
+#include <limits>
 #include "mathlib.h"
 
 using namespace std;
+
+
+void showMenu();
+
+int correctInputForMenu();
+
+double correctInputDouble();
+
+int correctInputInt();
+
+void inputArray(double[], int);
+
+double arrayFunctionOutput(double (*func)(const double*, int));
+
+void Demonstration();
+
+
+
+int main() {
+
+    cout << "\nWelcome to Mathematical Calculator!" << endl;
+    cout << "Using Static Library (.a)" << endl;
+
+    int choice;
+    do {
+        showMenu();
+        //cin >> choice;
+        choice = correctInputForMenu();
+
+        switch(choice) {
+            case 1: {
+                int searchType;
+                do {
+                    cout << "\nBasic operations - Select function:" << endl;
+                    cout << "1. add(a, b)" << endl;
+                    cout << "2. subtract(a, b)" << endl;
+                    cout << "3. multiply(a, b)" << endl;
+                    cout << "4. divide(a, b)" << endl;
+                    cout << "0. Exit" << endl;
+                    cout << "Choose function: ";
+
+                    //cin >> searchType;
+                    searchType = correctInputForMenu();
+
+                    switch(searchType) {
+                        case 1: {
+                            double valueA = correctInputDouble();
+                            double valueB = correctInputDouble();
+                            cout << "\nResult function " << "(" << searchType << ") = " << add(valueA, valueB) << endl;
+                            break;
+                        }
+                        case 2: {
+                            double valueA = correctInputDouble();
+                            double valueB = correctInputDouble();
+                            cout << "\nResult function " << "(" << searchType << ") = " << subtract(valueA, valueB) << endl;
+                            break;
+                        }
+                        case 3: {
+                            double valueA = correctInputDouble();
+                            double valueB = correctInputDouble();
+                            cout << "\nResult function " << "(" << searchType << ") = " << multiply(valueA, valueB) << endl;
+                            break;
+                        }
+                        case 4: {
+                            double valueA = correctInputDouble();
+                            double valueB = correctInputDouble();
+                            cout << "\nResult function " << "(" << searchType << ") = " << divide(valueA, valueB) << endl;
+                            break;
+                        }
+                        case 0: {
+                            cout << "Return to the main menu!" << endl;
+                            break;
+                        }
+                        default: {
+                            cout << "Invalid option!" << endl;
+                        }
+                    }
+                } while (searchType != 0);
+                break;
+            }
+            case 2: {
+                int searchType;
+                do {
+                    cout << "\nMathematical functions - Select function:" << endl;
+                    cout << "1. power(a, b)" << endl;
+                    cout << "2. squareRoot(a)" << endl;
+                    cout << "3. absoluteValue(a)" << endl;
+                    cout << "0. Exit" << endl;
+                    cout << "Choose function: ";
+
+                    //cin >> searchType;
+                    searchType = correctInputForMenu();
+
+                    switch(searchType) {
+                        case 1: {
+                            double valueA = correctInputDouble();
+                            int valueB = correctInputInt();
+                            cout << "\nResult function " << "(" << searchType << ") = " << power(valueA, valueB) << endl;
+                            break;
+                        }
+                        case 2: {
+                            double valueA = correctInputDouble();
+                            cout << "\nResult function " << "(" << searchType << ") = " << squareRoot(valueA) << endl;
+                            break;
+                        }
+                        case 3: {
+                            double valueA = correctInputDouble();
+                            cout << "\nResult function " << "(" << searchType << ") = " << absoluteValue(valueA) << endl;
+                            break;
+                        }
+                        case 0: {
+                            cout << "Return to the main menu!" << endl;
+                            break;
+                        }
+                        default: {
+                            cout << "Invalid option!" << endl;
+                        }
+                    }
+
+                } while (searchType != 0);
+                break;
+            }
+            case 3: {
+                int searchType;
+                do {
+                    cout << "\nWorking with integers - Select function:" << endl;
+                    cout << "1. factorial(a)" << endl;
+                    cout << "2. isPrime(a)" << endl;
+                    cout << "3. gcd(a, b)" << endl;
+                    cout << "0. Exit" << endl;
+                    cout << "Choose function: ";
+
+                    //cin >> searchType;
+                    searchType = correctInputForMenu();
+
+                    switch(searchType) {
+                        case 1: {
+                            int valueA = correctInputInt();
+                            cout << "\nResult function " << "(" << searchType << ") = " << factorial(valueA) << endl;
+                            break;
+                        }
+                        case 2: {
+                            int valueA = correctInputInt();
+                            cout << "\nResult function " << "(" << searchType << ") = " << ((isPrime(valueA)) ? "True!" : "False!") << endl;
+                            break;
+                        }
+                        case 3: {
+                            int valueA = correctInputInt();
+                            int valueB = correctInputInt();
+                            cout << "\nResult function " << "(" << searchType << ") = " << gcd(valueA, valueB) << endl;
+                            break;
+                        }
+                        case 0: {
+                            cout << "Return to the main menu!" << endl;
+                            break;
+                        }
+                        default: {
+                            cout << "Invalid option!" << endl;
+                        }
+                    }
+
+                } while (searchType != 0);
+                break;
+            }
+            case 4: {
+                int searchType;
+                do {
+                    cout << "\nUtility functions - Select function:" << endl;
+                    cout << "1. isEven(a)" << endl;
+                    cout << "2. isOdd(a)" << endl;
+                    cout << "3. fibonacci(a)" << endl;
+                    cout << "0. Exit" << endl;
+                    cout << "Choose function: ";
+
+                    //cin >> searchType;
+                    searchType = correctInputForMenu();
+
+                    switch(searchType) {
+                        case 1: {
+                            int valueA = correctInputInt();
+                            cout << "\nResult function " << "(" << searchType << ") = " << ((isEven(valueA)) ? "True!" : "False!") << endl;
+                            break;
+                        }
+                        case 2: {
+                            int valueA = correctInputInt();
+                            cout << "\nResult function " << "(" << searchType << ") = " << ((isOdd(valueA)) ? "True!" : "False!") << endl;
+                            break;
+                        }
+                        case 3: {
+                            int valueA = correctInputInt();
+                            cout << "\nResult function " << "(" << searchType << ") = " << fibonacci(valueA) << endl;
+                            break;
+                        }
+                        case 0: {
+                            cout << "Return to the main menu!" << endl;
+                            break;
+                        }
+                        default: {
+                            cout << "Invalid option!" << endl;
+                        }
+                    }
+
+                } while (searchType != 0);
+                break;
+            }
+            case 5: {
+                int searchType;
+                do {
+                    cout << "\nWorking with arrays - Select function:" << endl;
+                    cout << "1. findMax(arr[], size)" << endl;
+                    cout << "2. findMin(arr[], size)" << endl;
+                    cout << "3. calculateSum(arr[], size)" << endl;
+                    cout << "4. calculateAverage(arr[], size)" << endl;
+                    cout << "5. sortArray(arr[], size)" << endl;
+                    cout << "0. Exit" << endl;
+                    cout << "Choose function: ";
+
+                    //cin >> searchType;
+                    searchType = correctInputForMenu();
+
+                    switch(searchType) {
+                        case 1: {
+                            double result = arrayFunctionOutput(findMax);
+                            cout << "\nResult function " << "(" << searchType << ") = " << result << endl;
+                            break;
+                        }
+                        case 2: {
+                            double result = arrayFunctionOutput(findMin);
+                            cout << "\nResult function " << "(" << searchType << ") = " << result << endl;
+                            break;
+                        }
+                        case 3: {
+                            double result = arrayFunctionOutput(calculateSum);
+                            cout << "\nResult function " << "(" << searchType << ") = " << result << endl;
+                            break;
+                        }
+                        case 4: {
+                            double result = arrayFunctionOutput(calculateAverage);
+                            cout << "\nResult function " << "(" << searchType << ") = " << result << endl;
+                            break;
+                        }
+                        case 5: {
+                            cout << "\nEnter the array size. ";
+                            int size = correctInputInt();
+                            double* arr = new double[size];
+
+                            inputArray(arr, size);
+                            sortArray(arr, size);
+
+                            cout << "\nSorted array: ";
+                            for (int i = 0; i < size; i++) {
+                                cout << arr[i] << " ";
+                            }
+                            cout << endl;
+
+                            delete[] arr;
+                            break;
+                        }
+                        case 0: {
+                            cout << "Return to the main menu!" << endl;
+                            break;
+                        }
+                        default: {
+                            cout << "Invalid option!" << endl;
+                        }
+                    }
+
+                } while (searchType != 0);
+                break;
+            }
+            case 6: {
+                Demonstration();
+                break;
+            }
+
+            case 0:
+                cout << "Goodbye!" << endl;
+                break;
+
+            default:
+                cout << "Invalid option!" << endl;
+        }
+    } while (choice != 0);
+
+    return 0;
+}
+
 
 
 void showMenu() {
@@ -17,230 +305,129 @@ void showMenu() {
 }
 
 
-int main() {
+double correctInputDouble() {
+    cout << "Enter values: ";
+    double number;
 
-    cout << "\nWelcome to Mathematical Calculator!" << endl;
-    cout << "Using Static Library (.a)" << endl;
+    while (true) {
+        cin >> number;
 
-    int choice;
-    do {
-        showMenu();
-        cin >> choice;
-
-        switch (choice) {
-        case 1: {
-            cout << "\nSelect function:" << endl;
-            cout << "1. add(a, b)" << endl;
-            cout << "2. subtract(a, b)" << endl;
-            cout << "3. multiply(a, b)" << endl;
-            cout << "4. divide(a, b)" << endl;
-            cout << "Choose function: ";
-
-            int searchType;
-            cin >> searchType;
-
-            cout << "\nEnter two values (separated by a space): ";
-            double valuesA, valuesB;
-            cin >> valuesA >> valuesB;
-
-            double result;
-
-            if (searchType == 1) {
-                result = add(valuesA, valuesB);
-            }
-            else if (searchType == 2) {
-                result = subtract(valuesA, valuesB);
-            }
-            else if (searchType == 3) {
-                result = multiply(valuesA, valuesB);
-            }
-            else {
-                result = divide(valuesA, valuesB);
-            }
-
-            cout << "Result function " << "(" << searchType << ") = "<< result << endl;
-
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Invalid input. Please try again.\n";
+            cout << "Enter values: ";
+        } else {
             break;
         }
-        case 2: {
-            cout << "\nSelect function:" << endl;
-            cout << "1. power(a, b)" << endl;
-            cout << "2. squareRoot(a)" << endl;
-            cout << "3. absoluteValue(a)" << endl;
-            cout << "Choose function: ";
+    }
+    return number;
+}
 
-            int searchType;
-            cin >> searchType;
 
-            double result;
+int correctInputInt() {
+    cout << "Enter values: ";
+    int number;
 
-            if (searchType == 1) {
-                cout << "\nEnter two values (separated by a space): ";
-                double valuesA, valuesB;
-                cin >> valuesA >> valuesB;
-                result = power(valuesA, valuesB);
-            }
-            else if (searchType == 2) {
-                cout << "\nEnter one value: ";
-                double valuesA;
-                cin >> valuesA;
-                result = squareRoot(valuesA);
-            }
-            else {
-                cout << "\nEnter one value: ";
-                double valuesA;
-                cin >> valuesA;
-                result = absoluteValue(valuesA);
-            }
+    while (true) {
+        cin >> number;
 
-            cout << "Result function " << "(" << searchType << ") = "<< result << endl;
-
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Invalid input. Please try again.\n";
+            cout << "Enter values: ";
+        } else {
             break;
         }
-        case 3: {
-            cout << "\nSelect function:" << endl;
-            cout << "1. factorial(a)" << endl;
-            cout << "2. isPrime(a)" << endl;
-            cout << "3. gcd(a, b)" << endl;
-            cout << "Choose function: ";
+    }
+    return number;
+}
 
-            int searchType;
-            cin >> searchType;
 
-            if (searchType == 1) {
-                cout << "\nEnter one value: ";
-                int valuesA;
-                cin >> valuesA;
-                cout << "Result function " << "(" << searchType << ") = "<< factorial(valuesA) << endl;
-            }
-            else if (searchType == 2) {
-                cout << "\nEnter one value: ";
-                int valuesA;
-                cin >> valuesA;
-                cout << "Result function " << "(" << searchType << ") = " << ((isPrime(valuesA)) ? "True!" : "False!") << endl;
-            }
-            else {
-                cout << "\nEnter two values (separated by a space): ";
-                int valuesA, valuesB;
-                cin >> valuesA >> valuesB;
-                cout << "Result function " << "(" << searchType << ") = "<< gcd(valuesA, valuesB) << endl;
-            }
+int correctInputForMenu() {
+    int number;
 
+    while (true) {
+        cin >> number;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Invalid input. Please try again.\n";
+            cout << "Choose option: ";
+        } else {
             break;
         }
-        case 4: {
-            cout << "\nSelect function:" << endl;
-            cout << "1. isEven(a)" << endl;
-            cout << "2. isOdd(a)" << endl;
-            cout << "3. fibonacci(a)" << endl;
-            cout << "Choose function: ";
-
-            int searchType;
-            cin >> searchType;
-
-            if (searchType == 1) {
-                cout << "\nEnter one value: ";
-                int valuesA;
-                cin >> valuesA;
-                cout << "Result function " << "(" << searchType << ") = " << ((isEven(valuesA)) ? "True!" : "False!") << endl;
-            }
-            else if (searchType == 2) {
-                cout << "\nEnter one value: ";
-                int valuesA;
-                cin >> valuesA;
-                cout << "Result function " << "(" << searchType << ") = " << ((isOdd(valuesA)) ? "True!" : "False!") << endl;
-            }
-            else {
-                cout << "\nEnter one value: ";
-                int valuesA;
-                cin >> valuesA;
-                cout << "Result function " << "(" << searchType << ") = " << fibonacci(valuesA) << endl;
-            }
-
-            break;
-        }
-        case 5: {
-            cout << "\nSelect function:" << endl;
-            cout << "1. findMax(arr[], size)" << endl;
-            cout << "2. findMin(arr[], size)" << endl;
-            cout << "3. calculateSum(arr[], size)" << endl;
-            cout << "4. calculateAverage(arr[], size)" << endl;
-            cout << "5. sortArray(arr[], size)" << endl;
-            cout << "Choose function: ";
-
-            int searchType;
-            cin >> searchType;
-
-            // double findMax(const double arr[], int size);  // максимум масиву
-            // double findMin(const double arr[], int size);  //мінімум масиву
-            // double calculateSum(const double arr[], int size); // сума елементів
-            // double calculateAverage(const double arr[], int size);  // середнє арифметичне
-            // void sortArray(double arr[], int size); // сортування масиву
+    }
+    return number;
+}
 
 
-            cout << "\nEnter the array size: ";
-            int size;
-            cin >> size;
+void inputArray(double arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        while (true) {
+            cout << "Enter values Arr [" << i << "]: ";
+            cin >> arr[i];
 
-            double* arr= new double[size];
-
-            cout << "Enter " << size << " numbers (separated by a space): ";
-            for (int i = 0; i < size; i++) {
-                cin >> arr[i];
-            }
-
-
-            double result;
-
-            if (searchType == 1) {
-                result = findMax(arr, size);
-            }
-            else if (searchType == 2) {
-                result = findMin(arr, size);
-            }
-            else if (searchType == 3) {
-                result = calculateSum(arr, size);
-            }
-            else if (searchType == 4) {
-                result = calculateAverage(arr, size);
-            }
-            else {
-                sortArray(arr, size);
-
-                cout << "Sorted array: ";
-                for (int i = 0; i < size; i++) {
-                    cout << arr[i] << " ";
-                }
-                cout << endl;
-
-                delete[] arr;
-
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cout << "Invalid input. Please try again.\n";
+                cout << "Enter values Arr [" << i << "]: ";
+            } else {
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 break;
             }
-
-            cout << "Result function " << "(" << searchType << ") = "<< result << endl;
-
-            delete[] arr;
-
-            break;
         }
-        case 6: {
-            cout << "Case = 6" << endl;
-            // cout << "\n📊 Library Statistics:" << endl;
-            // cout << library.getLibraryInfo() << endl;
-            // cout << "Borrowed: " << library.getBorrowedBooks() << endl;
-            break;
-        }
+    }
+}
 
-        case 0:
-            cout << "Goodbye!" << endl;
-            break;
 
-        default:
-            cout << "Invalid option!" << endl;
-        }
-    } while (choice != 0);
+double arrayFunctionOutput(double (*func)(const double*, int)) {
 
-    //return a.exec();
-    return 0;
+    cout << "\nEnter the array size. ";
+    int size = correctInputInt();
+    double* arr = new double[size];
+
+    inputArray(arr, size);
+
+    double res = func(arr, size);
+
+    delete[] arr;
+
+    return res;
+}
+
+
+void Demonstration() {
+    cout << "\n=== Demonstration of the functions ===" << endl;
+
+    cout << "\n1. Basic operations:" << endl;
+    cout << "1.1. add(4, 5) = " << add(4, 5) << endl;
+    cout << "1.2. subtract(9, 4) = " << subtract(9, 4) << endl;
+    cout << "1.3. multiply(3, 5) = " << multiply(3, 5) << endl;
+    cout << "1.4. divide(9, 2) = " << divide(9, 2) << endl;
+
+    cout << "\n2. Mathematical functions:" << endl;
+    cout << "2.1. power(5, 2) = " << power(5, 2) << endl;
+    cout << "2.2. squareRoot(45) = " << squareRoot(45) << endl;
+    cout << "2.3. absoluteValue(-3) = " << absoluteValue(-3) << endl;
+
+    cout << "\n3. Working with integers:" << endl;
+    cout << "3.1. factorial(5) = " << factorial(5) << endl;
+    cout << "3.2. isPrime(7) = " << isPrime(7) << endl;
+    cout << "3.3. gcd(6, 4) = " << gcd(6, 4) << endl;
+
+    cout << "\n4. Utility functions:" << endl;
+    cout << "4.1. isEven(14) = " << ((isEven(14)) ? "True!" : "False!") << endl;
+    cout << "4.2. isOdd(14) = " << ((isOdd(14)) ? "True!" : "False!") << endl;
+    cout << "4.3. fibonacci(9) = " << fibonacci(9) << endl;
+
+    cout << "\n5. Working with arrays:" << endl;
+    cout << "5.1. findMax(arr[8, 5, 2, 52, 43], 5) = 52" << endl;
+    cout << "5.2. findMin(arr[8, 5, 2, 52, 43], 5) = 2" << endl;
+    cout << "5.3. calculateSum(arr[8, 5, 2, 52, 43], 5) = 110" << endl;
+    cout << "5.4. calculateAverage(arr[8, 5, 2, 52, 43], 5) = 22" << endl;
+    cout << "5.5. sortArray(arr[8, 5, 2, 52, 43], 5) = 2, 5, 8, 43, 52" << endl;
 }
