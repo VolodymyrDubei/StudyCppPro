@@ -20,7 +20,6 @@ double arrayFunctionOutput(double (*func)(const double*, int));
 void Demonstration();
 
 
-
 int main() {
 
     cout << "\nWelcome to Mathematical Calculator!" << endl;
