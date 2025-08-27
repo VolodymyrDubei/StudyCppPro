@@ -4,6 +4,7 @@
 a.out
 
 # Об'єктні файли
+*.o
 *.obj
 
 # Файли компіляції
@@ -12,6 +13,9 @@ a.out
 *.dylib
 
 # Папки збірки
+build/
+bin/
+Debug/
 Release/
 x64/
 
